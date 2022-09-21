@@ -36,7 +36,8 @@ public class Taxistand {
 
     Taxi abfahren() {
         Taxi t = warteschlange[0];
-        for (int i = 0; i < (warteschlange.length - 1); i++) {
+        for (int i = 0; i < (this.warteschlange.length - 1); i++) {
+            if(warteschlange[i] == null) break;
             warteschlange[i] = warteschlange[i + 1];
         }
         return t;
