@@ -1,26 +1,33 @@
-public class WARTEZIMMER
-{
+public class WARTEZIMMER {
     private int anzahl;
     private PATIENT anfang;
-    
+
     public WARTEZIMMER(PATIENT anfang) {
-        anzahl = 0;
+        anzahl = 1;
         this.anfang = anfang;
     }
-    
+
     public void einfügen(PATIENT p) {
-        PATIENT x = anfang;
-        while(x.getNachfolger() != null) {
-            x = x.getNachfolger();
+        if (this.anfang == null) {
+            this.anfang = p;
+            return;
         }
-        x.setNachfolger(p);
+        PATIENT next = this.anfang;
+        while (next.getNachfolger() != null) {
+            next = next.getNachfolger();
+        }
+        next.setNachfolger(p);
+        this.anzahl++;
     }
-    
+
     public PATIENT entfernen() {
-        return this.anfang; // Platzhaltrer. keine fehler :)
+        PATIENT x = this.anfang;
+        this.anfang = this.anfang.getNachfolger();
+        this.anzahl--;
+        return x;
     }
-    
+
     public int getAnzahl() {
-        return anzahl;        
+        return anzahl;
     }
 }

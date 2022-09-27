@@ -4,10 +4,14 @@ public class PATIENT
     private String krankheit;
     private PATIENT nachfolger;
     
-    public PATIENT(String n, String k) {
+    public PATIENT(String n, String k, PATIENT nachfolger) {
         this.name = n;
         this.krankheit = k;
         this.nachfolger = nachfolger;
+    }
+    public PATIENT(String n, String k) {
+        this.name = n;
+        this.krankheit = k;
     }
 
     // Getter- und Setter-Methoden
