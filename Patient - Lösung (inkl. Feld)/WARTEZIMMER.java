@@ -1,30 +1,36 @@
 public class WARTEZIMMER {
     private int anzahl;
-    private PATIENT anfang;
+    private KNOTEN anfang;
 
-    public WARTEZIMMER(PATIENT anfang) {
+    public WARTEZIMMER(KNOTEN anfang) {
         anzahl = 1;
         this.anfang = anfang;
     }
 
     public void einfügen(PATIENT p) {
+        einfügen(new KNOTEN(p));
+    }
+
+    public void einfügen(KNOTEN k) {
         if (this.anfang == null) {
-            this.anfang = p;
+            this.anfang = k;
             return;
         }
-        PATIENT next = this.anfang;
+        KNOTEN next = this.anfang;
         while (next.getNachfolger() != null) {
             next = next.getNachfolger();
         }
-        next.setNachfolger(p);
+        next.setNachfolger(k);
         this.anzahl++;
     }
 
     public PATIENT entfernen() {
-        PATIENT x = this.anfang;
+        KNOTEN x = this.anfang;
+        if (x == null)
+            return null;
         this.anfang = this.anfang.getNachfolger();
         this.anzahl--;
-        return x;
+        return x.getPatient();
     }
 
     public int getAnzahl() {
