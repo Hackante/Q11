@@ -21,10 +21,10 @@ public class WARTESCHLANGE {
 
     public void einfügen(KNOTEN k) {
         if (this.anfang == null) {
-            this.anfang = k;
+            setAnfang(k);
             return;
         }
-        KNOTEN next = this.anfang;
+        KNOTEN next = getAnfang();
         while (next.getNachfolger() != null) {
             next = next.getNachfolger();
         }
