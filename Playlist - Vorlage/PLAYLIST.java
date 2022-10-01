@@ -19,4 +19,10 @@ public class PLAYLIST {
     public void hinzufügen(KNOTEN knoten) {
         songs.einfügen(knoten);
     }
+
+    public void skip() {
+        musikplayer.stoppen();
+        songs.entfernen();
+        starten();
+    }
 }
