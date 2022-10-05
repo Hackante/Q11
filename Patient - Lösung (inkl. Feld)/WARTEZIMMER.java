@@ -7,7 +7,7 @@ public class WARTEZIMMER {
         this.anfang = anfang;
     }
 
-    public void einfügen(PATIENT p) {
+    public void einfügen(DatenElement p) {
         einfügen(new KNOTEN(p));
     }
 
@@ -24,7 +24,7 @@ public class WARTEZIMMER {
         this.anzahl++;
     }
 
-    public PATIENT entfernen() {
+    public DatenElement entfernen() {
         KNOTEN x = this.anfang;
         if (x == null)
             return null;
