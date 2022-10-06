@@ -23,4 +23,11 @@ public class PATIENT implements DatenElement {
     public String getKrankheit() {
         return krankheit;
     }
+
+    // Interface Stuff
+
+    @Override
+    public String ausgeben() {
+        return String.format("%s, %s", this.name, this.krankheit);
+    }
 }

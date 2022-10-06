@@ -28,4 +28,8 @@ public class KNOTEN {
     public void setNachfolger(KNOTEN nachfolger) {
         this.nachfolger = nachfolger;
     }
+
+    public String ausgeben() {
+        return patient.ausgeben();
+    }
 }
