@@ -3,9 +3,6 @@ public class PLAYLIST
     private WARTESCHLANGE songs;
     private MUSIKPLAYER musikplayer;
 
-    /**
-     * Konstruktor für Objekte der Klasse PLAYLIST
-     */
     public PLAYLIST()
     {
         songs = new WARTESCHLANGE();
@@ -14,6 +11,7 @@ public class PLAYLIST
 
     public void starten() {
         SONG song = (SONG) songs.entfernen().getDaten();
+        if(song == null) return;
         String dateiname = song.getInterpret() + "-" + song.getTitel();
         musikplayer.starten(dateiname + ".mp3");
     }
@@ -25,5 +23,4 @@ public class PLAYLIST
     public void hinzufügen(KNOTEN k) {
         songs.einfügen(k);
     }
- 
 }
