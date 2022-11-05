@@ -20,6 +20,7 @@ dependency6.type=UsesDependency
 dependency7.from=MusikPlayerGUI
 dependency7.to=PLAYLIST
 dependency7.type=UsesDependency
+<<<<<<< HEAD
 dependency8.from=MusikPlayerGUI
 dependency8.to=KNOTEN
 dependency8.type=UsesDependency
@@ -35,12 +36,27 @@ objectbench.width=1896
 package.divider.horizontal=0.6
 package.divider.vertical=0.8315899581589958
 package.editor.height=788
+=======
+editor.fx.0.height=737
+editor.fx.0.width=814
+editor.fx.0.x=344
+editor.fx.0.y=78
+objectbench.height=230
+objectbench.width=1896
+package.divider.horizontal=0.6
+package.divider.vertical=0.752092050209205
+package.editor.height=712
+>>>>>>> 78702337b7d7ff5b2462f12751b010ef6018d06c
 package.editor.width=1785
 package.editor.x=0
 package.editor.y=0
 package.frame.height=1056
 package.frame.width=1936
+<<<<<<< HEAD
 package.numDependencies=9
+=======
+package.numDependencies=7
+>>>>>>> 78702337b7d7ff5b2462f12751b010ef6018d06c
 package.numTargets=7
 package.showExtends=true
 package.showUses=true
@@ -91,8 +107,13 @@ target6.name=MusikPlayerGUI
 target6.showInterface=false
 target6.type=ClassTarget
 target6.width=120
+<<<<<<< HEAD
 target6.x=630
 target6.y=290
+=======
+target6.x=510
+target6.y=410
+>>>>>>> 78702337b7d7ff5b2462f12751b010ef6018d06c
 target7.height=50
 target7.name=PLAYLIST
 target7.showInterface=false
