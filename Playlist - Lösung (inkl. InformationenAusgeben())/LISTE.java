@@ -67,6 +67,11 @@ public class LISTE {
 
     public void einfügenVor(DATENELEMENT datenelement, DATENELEMENT vergleich) {
         if(this.anfang == null) vorneEinfügen(datenelement);
-        else this.anfang.einfügenVor(datenelement, vergleich);
+        else this.anfang = this.anfang.einfügenVor(datenelement, vergleich);
+    }
+    
+    public DATENELEMENT suchen(String titel) {
+        if(anfang == null) return null;
+        return anfang.suchen(titel);
     }
 }

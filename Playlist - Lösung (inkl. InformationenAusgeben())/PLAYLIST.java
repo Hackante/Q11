@@ -29,8 +29,8 @@ public class PLAYLIST
         musikplayer.stoppen();
     }
 
-    public void hinzufügen(KNOTEN k) {
-        songs.einfügen(k);
+    public void hinzufügen(SONG s) {
+        songs.hintenEinfügen(s);
     }
  
 }

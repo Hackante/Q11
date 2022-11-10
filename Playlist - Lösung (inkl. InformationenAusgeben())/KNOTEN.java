@@ -71,16 +71,22 @@ public class KNOTEN {
         }
     }
 
-    public void einfügenVor(DATENELEMENT datenelement, DATENELEMENT vergleich) {
+    public KNOTEN einfügenVor(DATENELEMENT datenelement, DATENELEMENT vergleich) {
         if(this.getDaten() == vergleich) {
             KNOTEN k = new KNOTEN(datenelement);
-            k.setNachfolger(this.getNachfolger());
-            this.setNachfolger(k);
-        } else if(vergleich != this.getDaten() && this.getNachfolger() == null) {
-            this.setNachfolger(new KNOTEN(datenelement));
-        } else if (vergleich != this.getDaten() && this.getNachfolger() != null) {
-            this.nachfolger.einfügenVor(datenelement, vergleich);
+            k.setNachfolger(this);
+            return k;
+        } else if(this.getNachfolger() == null) {
+            einfügen(datenelement);
+            return this;
+        } else {
+            this.setNachfolger(einfügenVor(datenelement, vergleich));
+            return this;
         }
     }
 
+    public DATENELEMENT suchen(String titel) {
+        if(this.getDaten().istGleich(titel)) return this.getDaten();
+        
+    }
 }

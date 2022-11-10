@@ -35,4 +35,8 @@ public class SONG implements DATENELEMENT
     public void ausgeben() {
         System.out.println(interpret + ": " + titel);
     }
+    
+    public boolean istGleich(String titel) {
+        return this.titel == titel;
+    }
 }

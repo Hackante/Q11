@@ -9,4 +9,6 @@
 public interface DATENELEMENT
 {
     public void ausgeben();
+    
+    public boolean istGleich();
 }
