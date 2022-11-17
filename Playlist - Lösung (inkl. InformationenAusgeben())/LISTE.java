@@ -74,4 +74,20 @@ public class LISTE {
         if(anfang == null) return null;
         return anfang.suchen(titel);
     }
+    
+    public void löschen(DATENELEMENT datenelement) {
+        if(this.anfang == null) return;
+        this.anfang = this.anfang.löschen(datenelement);
+    }
+    
+    public void vorneLöschen() {
+        if(this.anfang != null) {
+            this.anfang = this.anfang.getNachfolger();
+        }
+    }
+    
+    public void hintenLöschen() {
+        if(this.anfang == null) return;
+        else this.anfang = this.anfang.hintenLöschen();
+    }
 }

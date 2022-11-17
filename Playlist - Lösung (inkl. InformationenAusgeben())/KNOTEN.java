@@ -87,6 +87,24 @@ public class KNOTEN {
 
     public DATENELEMENT suchen(String titel) {
         if(this.getDaten().istGleich(titel)) return this.getDaten();
-        
+        else if(this.nachfolger != null) return this.nachfolger.suchen(titel);
+        else return null;
+    }
+    
+    public KNOTEN löschen(DATENELEMENT datenelement) {
+        if(this.getDaten() == datenelement) {
+            return this.nachfolger;
+        } else if (this.nachfolger != null) {
+            this.nachfolger = this.nachfolger.löschen(datenelement);
+            return this;
+        } else return this;
+    }
+    
+    public KNOTEN hintenLöschen() {
+        if(this.nachfolger == null) return null;
+        else {
+            this.nachfolger = this.nachfolger.hintenLöschen();
+            return this;
+        }
     }
 }
