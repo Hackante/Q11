@@ -1,9 +1,11 @@
 public class CAMP {
     private ORT ort;
     private BESUCHER[] besucher;
+    private int maxBesucher;
 
     public CAMP(int besucherAnzahl) {
         besucher = new BESUCHER[besucherAnzahl];
+        maxBesucher = besucherAnzahl;
     }
 
     public CAMP(ORT ort, int besucherAnzahl) {
@@ -38,4 +40,4 @@ public class CAMP {
         }
         return zusammen == n;
     }
-}
+} 
