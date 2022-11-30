@@ -20,24 +20,13 @@ public class KNOTEN extends LISTENELEMENT {
     }
 
     public LISTENELEMENT sortiertEinfuegen(VERANSTALTUNG veranstaltung) {
-        // Tag
-        if (this.veranstaltung.getTag() > veranstaltung.getTag()) {
-            KNOTEN k = new KNOTEN(veranstaltung);
-            k.setNachfolger(this);
-            return this;
-        } else if (this.veranstaltung.getTag() < veranstaltung.getTag()) {
+        if (this.veranstaltung.istKleinerAls(veranstaltung)) {
             this.nachfolger = this.nachfolger.sortiertEinfuegen(veranstaltung);
             return this;
         } else {
-            // Zeitfenster
-            if (this.veranstaltung.getZeitfenster() > veranstaltung.getZeitfenster()) {
-                KNOTEN k = new KNOTEN(veranstaltung);
-                k.setNachfolger(this);
-                return this;
-            } else {
-                this.nachfolger = this.nachfolger.sortiertEinfuegen(veranstaltung);
-                return this;
-            }
+            KNOTEN k = new KNOTEN(veranstaltung);
+            k.setNachfolger(this);
+            return k;
         }
     }
 

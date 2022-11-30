@@ -39,4 +39,10 @@ public class VERANSTALTUNG {
     public void setOrt(ORT ort) {
         this.ort = ort;
     }
+    
+    public boolean istKleinerAls(VERANSTALTUNG vergleich) {
+        if(this.tag < vergleich.getTag()) return true;
+        if(this.zeitfenster < vergleich.getZeitfenster()) return true;
+        return false;
+    }
 }
