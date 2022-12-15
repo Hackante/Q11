@@ -12,4 +12,8 @@ public class BinaryTree {
     public Knot getRoot() {
         return this.root;
     }
+    
+    public DataElement suchenRekursiv(String vergleich) {
+        return this.root.suchenRekursiv(vergleich);
+    }
 }

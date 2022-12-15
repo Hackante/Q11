@@ -41,4 +41,16 @@ public class DictionaryEntry implements DataElement {
     public void removeMeaning(String meaning) {
         meanings.remove(meaning);
     }
+    
+    public boolean istGleich(String vergleich) {
+        return this.word.compareTo(vergleich) == 0 ? true : false;
+    }
+    
+    public boolean istKleinerAls(String vergleich) {
+        return this.word.compareTo(vergleich) < 0 ? true : false;
+    }
+    
+    public boolean istGrößerAls(String vergleich) {
+        return this.word.compareTo(vergleich) > 0 ? true : false;
+    }
 }
