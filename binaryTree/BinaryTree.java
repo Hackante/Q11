@@ -1,15 +1,15 @@
 public class BinaryTree {
-    private Knot root;
+    private Node root;
 
     public BinaryTree() {
 
     }
 
-    public void setRoot(Knot root) {
+    public void setRoot(Node root) {
         this.root = root;
     }
 
-    public Knot getRoot() {
+    public Node getRoot() {
         return this.root;
     }
     

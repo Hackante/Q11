@@ -42,14 +42,17 @@ public class DictionaryEntry implements DataElement {
         meanings.remove(meaning);
     }
     
+    @Override
     public boolean istGleich(String vergleich) {
         return this.word.compareTo(vergleich) == 0 ? true : false;
     }
     
+    @Override
     public boolean istKleinerAls(String vergleich) {
         return this.word.compareTo(vergleich) < 0 ? true : false;
     }
     
+    @Override
     public boolean istGrößerAls(String vergleich) {
         return this.word.compareTo(vergleich) > 0 ? true : false;
     }

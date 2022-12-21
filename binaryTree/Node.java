@@ -1,24 +1,24 @@
-public class Knot {
+public class Node {
     private DataElement data;
-    private Knot nextLeft, nextRight;
+    private Node nextLeft, nextRight;
 
-    public Knot(DataElement data) {
+    public Node(DataElement data) {
         this.data = data;
     }
 
-    public void setLeft(Knot left) {
+    public void setLeft(Node left) {
         this.nextLeft = left;
     }
 
-    public void setRight(Knot right) {
+    public void setRight(Node right) {
         this.nextRight = right;
     }
 
-    public Knot getRight() {
+    public Node getRight() {
         return this.nextRight;
     }
 
-    public Knot getLeft() {
+    public Node getLeft() {
         return this.nextLeft;
     }
     
