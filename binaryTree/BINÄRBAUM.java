@@ -22,6 +22,6 @@ public class BINÄRBAUM {
     }
     
     public void einfügen(DATENELEMENT d) {
-        this.wurzel = this.wurzel.einfügen(d);
+        this.wurzel = this.wurzel == null ? new KNOTEN(d) : this.wurzel.einfügen(d);
     }
 }

@@ -1,4 +1,4 @@
-public class KNOTEN {
+public class KNOTEN extends ELEMENT {
     private KNOTEN linkerNachfolger, rechterNachfolger;
     private DATENELEMENT daten;
     
@@ -35,13 +35,11 @@ public class KNOTEN {
     public DATENELEMENT suchen(String gesuchtesWort) {
         if(daten.istGleich(gesuchtesWort)) {
             return this.daten;
-        }
-        else if(daten.istKleinerAls(gesuchtesWort) && rechterNachfolger != null) {
+        } else if(daten.istKleinerAls(gesuchtesWort) && rechterNachfolger != null) {
             return this.rechterNachfolger.suchen(gesuchtesWort);
-        }
-        else if(daten.istGrößerAls(gesuchtesWort) && linkerNachfolger != null) {
+        } else if(daten.istGrößerAls(gesuchtesWort) && linkerNachfolger != null) {
             return this.linkerNachfolger.suchen(gesuchtesWort);
-        }
+        } 
         return null;
     }
     
