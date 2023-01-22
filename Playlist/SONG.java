@@ -1,12 +1,4 @@
-
-/**
- * Beschreiben Sie hier die Klasse Patient.
- * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
- */
-public class SONG implements DATENELEMENT
-{
+public class SONG {
     private String interpret;
     private String titel;
     
@@ -32,11 +24,7 @@ public class SONG implements DATENELEMENT
         titel = t;
     }
 
-    public void ausgeben() {
-        System.out.println(interpret + ": " + titel);
-    }
-    
-    public boolean istGleich(String titel) {
-        return this.titel == titel;
+    public String ausgeben() {
+        return interpret + ": " + titel;
     }
 }

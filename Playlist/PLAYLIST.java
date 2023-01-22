@@ -1,27 +1,28 @@
-
-/**
- * Beschreiben Sie hier die Klasse PLAYLIST.
- * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
- */
-public class PLAYLIST
-{
-    private LISTE songs;
+import java.util.ArrayList;
+public class PLAYLIST {
+    
     private MUSIKPLAYER musikplayer;
+    private SONG aktuellerSong;
+    private ArrayList<SONG> songs;
 
-    /**
-     * Konstruktor für Objekte der Klasse PLAYLIST
-     */
     public PLAYLIST()
     {
-        songs = new LISTE();
+        songs = new ArrayList<SONG>();
         musikplayer = new MUSIKPLAYER();
+    }
+    
+    public SONG getAktuellerSong() {
+        return aktuellerSong;
+    }
+    
+    public void initialisieren() {
+        aktuellerSong = songs.get(0);
     }
 
     public void starten() {
-        SONG song = (SONG) songs.entfernen().getDaten();
-        String dateiname = song.getInterpret() + "-" + song.getTitel();
+        String interpret = aktuellerSong.getInterpret();
+        String titel = aktuellerSong.getTitel();
+        String dateiname = interpret + "-" + titel;
         musikplayer.starten(dateiname + ".mp3");
     }
 
@@ -29,8 +30,18 @@ public class PLAYLIST
         musikplayer.stoppen();
     }
 
-    public void hinzufügen(SONG s) {
-        songs.hintenEinfügen(s);
+    public void nächsterSong() {
+        stoppen();
+        int index = songs.indexOf(aktuellerSong);
+        aktuellerSong = index < songs.size()-1 ? songs.get(index+1) : aktuellerSong;
+        starten();
     }
- 
+    
+    public void hinzufügen(SONG s) {
+        songs.add(s);
+    }
+    
+    public void entfernen(SONG s) {
+        songs.remove(s);
+    }
 }
