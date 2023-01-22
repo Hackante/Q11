@@ -1,3 +1,10 @@
+
+/**
+ * Beschreiben Sie hier die Klasse KNOTEN.
+ * 
+ * @author (Ihr Name)
+ * @version (eine Versionsnummer oder ein Datum)
+ */
 public class KNOTEN {
     private DATENELEMENT daten;
     private KNOTEN nachfolger;
@@ -36,45 +43,68 @@ public class KNOTEN {
         }
     }
 
-    public double getRestdauer() {
-        if (nachfolger == null) {
-            return daten.getDauer();
-        } else {
-            return nachfolger.getRestdauer() + daten.getDauer();
-        }
-    }
-
-    public double getRestbewertung() {
-        if (nachfolger == null) {
-            return daten.getBewertung();
-        } else {
-            return nachfolger.getRestbewertung() + daten.getBewertung();
-        }
-    }
-
-    public double getRestjahr() {
-        if (nachfolger == null) {
-            return daten.getJahr();
-        } else {
-            return nachfolger.getRestjahr() + daten.getJahr();
-        }
-    }
-
-    public double getRestpreis() {
-        if (nachfolger == null) {
-            return daten.getPreis();
-        } else {
-            return nachfolger.getRestpreis() + daten.getPreis();
-        }
-    }
-
     public void restlicheInfosAusgeben() {
         if (nachfolger == null) {
             daten.ausgeben();
         } else {
-            daten.ausgeben();
-            System.out.println();
             nachfolger.restlicheInfosAusgeben();
+            daten.ausgeben();
+        }
+    }
+
+    public void einfügen(DATENELEMENT datenelement) {
+        if (this.nachfolger == null)
+            this.setNachfolger(new KNOTEN(datenelement));
+        else
+            this.nachfolger.einfügen(datenelement);
+    }
+
+    public void einfügenVorMe(DATENELEMENT datenelement, DATENELEMENT vergleich) {
+        if(this.getNachfolger() == null) {
+            this.setNachfolger(new KNOTEN(datenelement));
+        } else if(vergleich == this.getNachfolger().getDaten()) {
+            KNOTEN k = new KNOTEN(datenelement);
+            k.setNachfolger(this.getNachfolger());
+            this.setNachfolger(k);
+        } else if (this.getNachfolger() != null) {
+            this.nachfolger.einfügenVorMe(datenelement, vergleich);
+        }
+    }
+
+    public KNOTEN einfügenVor(DATENELEMENT datenelement, DATENELEMENT vergleich) {
+        if(this.getDaten() == vergleich) {
+            KNOTEN k = new KNOTEN(datenelement);
+            k.setNachfolger(this);
+            return k;
+        } else if(this.getNachfolger() == null) {
+            einfügen(datenelement);
+            return this;
+        } else {
+            this.setNachfolger(einfügenVor(datenelement, vergleich));
+            return this;
+        }
+    }
+
+    public DATENELEMENT suchen(String titel) {
+        if(this.getDaten().istGleich(titel)) return this.getDaten();
+        else if(this.nachfolger != null) return this.nachfolger.suchen(titel);
+        else return null;
+    }
+    
+    public KNOTEN löschen(DATENELEMENT datenelement) {
+        if(this.getDaten() == datenelement) {
+            return this.nachfolger;
+        } else if (this.nachfolger != null) {
+            this.nachfolger = this.nachfolger.löschen(datenelement);
+            return this;
+        } else return this;
+    }
+    
+    public KNOTEN hintenLöschen() {
+        if(this.nachfolger == null) return null;
+        else {
+            this.nachfolger = this.nachfolger.hintenLöschen();
+            return this;
         }
     }
 }

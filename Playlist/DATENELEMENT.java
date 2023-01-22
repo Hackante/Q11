@@ -10,11 +10,5 @@ public interface DATENELEMENT
 {
     public void ausgeben();
     
-    public double getDauer();
-    
-    public double getBewertung();
-    
-    public double getJahr();
-    
-    public double getPreis();
+    public boolean istGleich(String titel);
 }
