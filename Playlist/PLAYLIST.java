@@ -1,28 +1,36 @@
-public class PLAYLIST {
+
+/**
+ * Beschreiben Sie hier die Klasse PLAYLIST.
+ * 
+ * @author (Ihr Name) 
+ * @version (eine Versionsnummer oder ein Datum)
+ */
+public class PLAYLIST
+{
     private WARTESCHLANGE songs;
     private MUSIKPLAYER musikplayer;
 
-    public PLAYLIST(KNOTEN anfang) {
-        this.musikplayer = new MUSIKPLAYER();
-        this.songs = new WARTESCHLANGE(anfang);
+    /**
+     * Konstruktor für Objekte der Klasse PLAYLIST
+     */
+    public PLAYLIST()
+    {
+        songs = new WARTESCHLANGE();
+        musikplayer = new MUSIKPLAYER();
     }
 
     public void starten() {
-        SONG song = songs.getAnfang().getSong();
-        musikplayer.starten(String.format("%s-%s.mp3", song.getInterpret(), song.getTitle()));
+        SONG song = (SONG) songs.entfernen().getDaten();
+        String dateiname = song.getInterpret() + "-" + song.getTitel();
+        musikplayer.starten(dateiname + ".mp3");
     }
 
     public void stoppen() {
         musikplayer.stoppen();
     }
 
-    public void hinzufügen(KNOTEN knoten) {
-        songs.einfügen(knoten);
+    public void hinzufügen(KNOTEN k) {
+        songs.einfügen(k);
     }
-
-    public void skip() {
-        musikplayer.stoppen();
-        songs.entfernen();
-        starten();
-    }
+ 
 }
