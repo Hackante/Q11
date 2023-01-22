@@ -1,0 +1,10 @@
+{
+    "java.project.sourcePaths": [
+        "+libs",
+        "."
+    ],
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "+libs\\jl1.0.1.jar"
+    ]
+}
