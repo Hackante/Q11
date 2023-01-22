@@ -1,4 +1,3 @@
-
 /**
  * Beschreiben Sie hier die Klasse Wartezimmer.
  * 
@@ -7,11 +6,9 @@
  */
 public class WARTESCHLANGE
 {
-    private int anzahl;
     private KNOTEN anfang;
 
     public WARTESCHLANGE() {
-        anzahl = 0;
         anfang = null;
     }
 
@@ -26,18 +23,65 @@ public class WARTESCHLANGE
             }
             aktuell.setNachfolger(k);
         }
-        anzahl++;
     }
 
     public KNOTEN entfernen() {
         KNOTEN nächster = anfang;
         anfang = anfang.getNachfolger();
-        anzahl--;
         return nächster;
     }
 
-    public int getAnzahl() {
-        return anzahl;        
+    public int getLänge() {
+        if(anfang == null) {
+            return 0;
+        }
+        else {
+            return anfang.getRestlänge();   
+        }        
     }
 
+    public double getGesamtdauer() {
+        if(anfang == null) {
+            return 0;
+        }
+        else {
+            return anfang.getRestdauer();   
+        }        
+    }
+    
+    public double getDurchschnittsbewertung() {
+        if(anfang == null) {
+            return 0;
+        }
+        else {
+            return anfang.getRestbewertung() / getLänge();
+        } 
+    }
+      
+    public double getAktualität() {
+        if(anfang == null) {
+            return 0;
+        }
+        else {
+            return 2022 - Math.round(anfang.getRestjahr() / getLänge());
+        }
+    }
+    
+    public boolean istKostenlos() {
+        if(anfang == null) {
+            return true;
+        }
+        else {
+            return (anfang.getRestpreis() == 0);
+        }
+    }
+    
+    public void alleInfosAusgeben() {
+        if(anfang == null) {
+            System.out.println("Es ist kein Song in der Playlist...");
+        }
+        else {
+            anfang.restlicheInfosAusgeben();
+        }
+    }
 }
