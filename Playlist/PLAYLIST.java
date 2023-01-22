@@ -7,7 +7,7 @@
  */
 public class PLAYLIST
 {
-    private WARTESCHLANGE songs;
+    private LISTE songs;
     private MUSIKPLAYER musikplayer;
 
     /**
@@ -15,7 +15,7 @@ public class PLAYLIST
      */
     public PLAYLIST()
     {
-        songs = new WARTESCHLANGE();
+        songs = new LISTE();
         musikplayer = new MUSIKPLAYER();
     }
 
@@ -29,8 +29,8 @@ public class PLAYLIST
         musikplayer.stoppen();
     }
 
-    public void hinzufügen(KNOTEN k) {
-        songs.einfügen(k);
+    public void hinzufügen(SONG s) {
+        songs.hintenEinfügen(s);
     }
  
 }

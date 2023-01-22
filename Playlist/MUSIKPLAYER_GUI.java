@@ -53,5 +53,6 @@ public class MUSIKPLAYER_GUI extends Application {
     
     public void ladePlaylist() {
         playlist = new PLAYLIST();
+        //...
     }
 }
