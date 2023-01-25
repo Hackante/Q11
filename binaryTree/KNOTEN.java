@@ -1,11 +1,11 @@
 public class KNOTEN extends ELEMENT {
-    private KNOTEN linkerNachfolger, rechterNachfolger;
+    private ELEMENT linkerNachfolger, rechterNachfolger;
     private DATENELEMENT daten;
     
     public KNOTEN(DATENELEMENT d) {
         daten = d;
-        linkerNachfolger = null;
-        rechterNachfolger = null;
+        linkerNachfolger = new ABSCHLUSS();
+        rechterNachfolger = new ABSCHLUSS();
     }
     
     public DATENELEMENT getDaten() {
@@ -16,38 +16,38 @@ public class KNOTEN extends ELEMENT {
         daten = d;
     }
     
-    public KNOTEN getLinkerNachfolger() {
+    public ELEMENT getLinkerNachfolger() {
         return linkerNachfolger;
     }
     
-    public void setLinkerNachfolger(KNOTEN k) {
+    public void setLinkerNachfolger(ELEMENT k) {
         linkerNachfolger = k;
     }
     
-    public KNOTEN getRechterNachfolger() {
+    public ELEMENT getRechterNachfolger() {
         return rechterNachfolger;
     }
     
-    public void setRechterNachfolger(KNOTEN k) {
+    public void setRechterNachfolger(ELEMENT k) {
         rechterNachfolger = k;
     }
     
     public DATENELEMENT suchen(String gesuchtesWort) {
         if(daten.istGleich(gesuchtesWort)) {
             return this.daten;
-        } else if(daten.istKleinerAls(gesuchtesWort) && rechterNachfolger != null) {
+        } else if(daten.istKleinerAls(gesuchtesWort)) {
             return this.rechterNachfolger.suchen(gesuchtesWort);
-        } else if(daten.istGrößerAls(gesuchtesWort) && linkerNachfolger != null) {
+        } else if(daten.istGrößerAls(gesuchtesWort)) {
             return this.linkerNachfolger.suchen(gesuchtesWort);
         } 
         return null;
     }
     
-    public KNOTEN einfügen(DATENELEMENT d) {
+    public ELEMENT einfügen(DATENELEMENT d) {
         if(d.istGrößerAls(this.daten)) {
-            this.rechterNachfolger = this.rechterNachfolger != null ? rechterNachfolger.einfügen(d) : new KNOTEN(d);
+            this.rechterNachfolger = rechterNachfolger.einfügen(d);
         } else if(d.istKleinerAls(this.daten)) {
-            this.linkerNachfolger = this.linkerNachfolger != null ? linkerNachfolger.einfügen(d) : new KNOTEN(d);
+            this.linkerNachfolger = linkerNachfolger.einfügen(d);
         } else {
             System.out.println("Already in binary tree");
         }
