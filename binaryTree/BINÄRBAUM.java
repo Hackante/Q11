@@ -1,16 +1,16 @@
 public class BINÄRBAUM {
-    private KNOTEN wurzel;
+    private ELEMENT wurzel;
 
     public BINÄRBAUM()
     {
-        wurzel = null;
+        wurzel = new ABSCHLUSS();
     }
 
-    public KNOTEN getWurzel() {
+    public ELEMENT getWurzel() {
         return wurzel;
     }
     
-    public void setWurzel(KNOTEN k) {
+    public void setWurzel(ELEMENT k) {
         wurzel = k;
     }
     
