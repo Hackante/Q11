@@ -12,4 +12,6 @@ public interface DATENELEMENT {
     public boolean istGrößerAls(DATENELEMENT vergleich);
     
     public String getCompareValue();
+    
+    public String getWort();
 }
