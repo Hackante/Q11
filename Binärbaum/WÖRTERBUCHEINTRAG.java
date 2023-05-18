@@ -1,12 +1,4 @@
-
-/**
- * Beschreiben Sie hier die Klasse WÖRTERBUCHEINTRAG.
- * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
- */
-public class WÖRTERBUCHEINTRAG implements DATENELEMENT
-{
+public class WÖRTERBUCHEINTRAG implements DATENELEMENT {
     private String wort;
     private String bedeutungen;
     
@@ -44,18 +36,18 @@ public class WÖRTERBUCHEINTRAG implements DATENELEMENT
     }
     
     public boolean istGleich(DATENELEMENT neu) {
-        return wort.compareTo(neu.getName()) == 0;
+        return wort.compareTo(neu.getWort()) == 0;
     }
     
     public boolean istKleinerAls(DATENELEMENT neu) {
-        return wort.compareTo(neu.getName()) < 0;
+        return wort.compareTo(neu.getWort()) < 0;
     }
     
     public boolean istGrößerAls(DATENELEMENT neu) {
-        return wort.compareTo(neu.getName()) > 0;
+        return wort.compareTo(neu.getWort()) > 0;
     }
     
-    public String getName() {
-        return "f";
+    public void ausgeben() {
+        System.out.printf("Englisch: %s, Deutsch: %s\n", wort, bedeutungen);
     }
 }

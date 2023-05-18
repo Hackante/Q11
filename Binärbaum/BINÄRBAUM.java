@@ -1,7 +1,9 @@
-public class BINÄRBAUM
-{
+public class BINÄRBAUM {
     private BAUMELEMENT wurzel;
     
+    /**
+     * Konstruktor für Objekte der Klasse BINÄRBAUM
+     */
     public BINÄRBAUM()
     {
         wurzel = new ABSCHLUSS();
@@ -23,7 +25,15 @@ public class BINÄRBAUM
         wurzel = wurzel.einfügen(neu);
     }
     
-    public void ortÄndern(String name, ORT ort) {
-        this.wurzel = this.wurzel.ortÄndern(name, ort);
+    public void printInOrder() {
+        this.wurzel.printInOrder();
+    }
+    
+    public void printPreOrder() {
+        this.wurzel.printPreOrder();
+    }
+    
+    public void printPostOrder() {
+        this.wurzel.printPostOrder();
     }
 }

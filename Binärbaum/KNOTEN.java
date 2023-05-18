@@ -1,12 +1,4 @@
-
-/**
- * Beschreiben Sie hier die Klasse KNOTEN.
- * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
- */
-public class KNOTEN extends BAUMELEMENT
-{
+public class KNOTEN extends BAUMELEMENT {
     private BAUMELEMENT linkerNachfolger, rechterNachfolger;
     private DATENELEMENT daten;
 
@@ -65,9 +57,21 @@ public class KNOTEN extends BAUMELEMENT
         return this;
     }
     
-    public BAUMELEMENT ortÄndern(String name, ORT ort) {
-        if(this.daten.getName() == name) {
-            this.daten.setOrt(ort);
-        }
+    public void printInOrder() {
+        this.linkerNachfolger.printInOrder();
+        this.daten.ausgeben();
+        this.rechterNachfolger.printInOrder();
+    }
+    
+    public void printPreOrder() {
+        this.daten.ausgeben();
+        this.linkerNachfolger.printPreOrder();
+        this.rechterNachfolger.printPreOrder();
+    }
+    
+    public void printPostOrder() {
+        this.linkerNachfolger.printPreOrder();
+        this.rechterNachfolger.printPreOrder();
+        this.daten.ausgeben();
     }
 }

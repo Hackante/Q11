@@ -1,12 +1,4 @@
-
-/**
- * Beschreiben Sie hier die Klasse ABSCHLUSS.
- * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
- */
-public class ABSCHLUSS extends BAUMELEMENT
-{
+public class ABSCHLUSS extends BAUMELEMENT {
     public ABSCHLUSS() {
         
     }
@@ -20,7 +12,15 @@ public class ABSCHLUSS extends BAUMELEMENT
         return k;
     }
     
-    public BAUMELEMENT ortÄndern(String name, ORT ort) {
-        return this;
+    public void printInOrder() {
+        return;
+    }
+    
+    public void printPreOrder() {
+        return;
+    }
+    
+    public void printPostOrder() {
+        return;
     }
 }
